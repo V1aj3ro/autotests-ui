@@ -21,7 +21,7 @@ with sync_playwright() as playwright:
     registration_button.click()
 
     context.storage_state(path='browser-state.json')
-    page.wait_for_timeout(5000)
+
 
 
 with sync_playwright() as playwright:
@@ -44,4 +44,3 @@ with sync_playwright() as playwright:
      courses_description_text = page.get_by_test_id('courses-list-empty-view-description-text')
      expect(courses_description_text).to_be_visible()
      expect(courses_description_text).to_have_text('Results from the load test pipeline will be displayed here')
-     page.wait_for_timeout(5000)
