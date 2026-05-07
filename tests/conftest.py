@@ -30,6 +30,7 @@ def initialize_browser_state(playwright: Playwright) -> Page:
     registration_button.click()
 
     context.storage_state(path='browser-state.json')
+    browser.close()
 
 
 @pytest.fixture
