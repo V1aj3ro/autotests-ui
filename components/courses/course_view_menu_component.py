@@ -7,7 +7,7 @@ class CourseViewMenuComponent(BaseComponent):
     def __init__(self, page: Page):
         super().__init__(page)
 
-        self.menu_button = Button(page,'course_view_menu_button', 'Menu')
+        self.menu_button = Button(page,'course-view-menu-button', 'Menu')
         self.edit_menu_button = Button(page,'course-view-edit-menu-item', 'Edit')
         self.delete_menu_button = Button(page,'course-view-delete-menu-item', 'Delete')
 
