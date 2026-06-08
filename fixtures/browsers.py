@@ -36,11 +36,11 @@ def initialize_browser_state(playwright: Playwright):
     browser.close()
 
 
-@pytest.fixture
+@pytest.fixture(params=settings.browsers)
 def page_with_state(request: SubRequest, playwright: Playwright) -> Page:
     yield from initialize_playwright_page(
         playwright,
         test_name=request.node.name,
         browser_type=request.param,
-        storage_state=settings.browser_state_file
+        storage_state=settings.browser_state_file,
     )
