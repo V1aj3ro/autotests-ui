@@ -1,5 +1,3 @@
-from getpass import fallback_getpass
-
 import pytest
 from _pytest.fixtures import SubRequest
 from playwright.sync_api import Page, Playwright
