@@ -1,3 +1,4 @@
+import json
 from enum import Enum
 from typing import Self
 
@@ -47,7 +48,10 @@ class Settings(BaseSettings):
         videos_dir.mkdir(exist_ok=True),
         tracing_dir.mkdir(exist_ok=True),
         allure_results_dir.mkdir(exist_ok=True),
-        browser_state_file.touch(exist_ok=True)
+        if not browser_state_file.exists() or browser_state_file.stat().st_size == 0:
+            browser_state_file.write_text(
+                json.dumps({"cookies": [], "origins": []})
+            )
 
         return Settings(
             videos_dir=videos_dir,
